@@ -36,8 +36,7 @@ const educationData: EducationItem[] = [
     location: 'Parvathipuram, Andhra Pradesh',
     percentage: '100%' // Add your actual percentage here
   }
-]
-
+];
 
 const Education: FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -45,29 +44,22 @@ const Education: FC = () => {
     target: containerRef,
     offset: ['start end', 'end start']
   });
-  
+
   // Parallax effect for section title
   const titleY = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  
+
   // Use GlassMorphism context for consistent styling
   const { applyGlass } = useGlassMorphism();
-  
+
   return (
-    <section 
-      id="education" 
-      ref={containerRef}
-      className="min-h-screen py-20 relative overflow-hidden"
-    >
+    <section id="education" ref={containerRef} className="min-h-screen py-20 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background opacity-90 z-0"></div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Title */}
-        <motion.div
-          style={{ y: titleY, opacity }}
-          className="text-center mb-16"
-        >
+        <motion.div style={{ y: titleY, opacity }} className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold gradient-text mb-4">
             Educational Journey
           </h2>
@@ -75,47 +67,46 @@ const Education: FC = () => {
             Explore my academic path from kindergarten to current studies
           </p>
         </motion.div>
-        
+
         {/* Timeline */}
         <div className="relative">
           {/* Central timeline line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-secondary to-primary rounded-full"></div>
-          
+
           {/* Education items */}
           {educationData.map((item, index) => (
-            <motion.div 
+            <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className={`relative mb-16 flex flex-col items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
-                {/* Timeline dot */}
-                <div className="absolute top-0 lg:top-1/2 left-1/2 transform -translate-x-1/2 lg:-translate-y-1/2 w-5 h-5 rounded-full bg-primary border-2 border-background z-10"></div>
-                
-                {/* Year badge - now positioned independently */}
-                {/* REMOVED: <div className={`absolute -top-4 z-20 ${index % 2 === 0 ? 'lg:left-[calc(50%+1.5rem)]' : 'lg:right-[calc(50%+1.5rem)]'}`}>
-                  <div className="bg-gradient-to-r from-primary to-secondary text-white py-2 px-4 rounded-lg text-center font-medium shadow-lg">
+              className={`relative mb-16 flex flex-col items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
+            >
+              {/* Timeline dot */}
+              <div className="absolute top-0 lg:top-1/2 left-1/2 transform -translate-x-1/2 lg:-translate-y-1/2 w-5 h-5 rounded-full bg-primary border-2 border-background z-10"></div>
+
+              {/* Year badge - now positioned independently */}
+              {/* REMOVED: <div className={`absolute -top-4 z-20 ${index % 2 === 0 ? 'lg:left-[calc(50%+1.5rem)]' : 'lg:right-[calc(50%+1.5rem)]'}`}>
+                <div className="bg-gradient-to-r from-primary to-secondary text-white py-2 px-4 rounded-lg text-center font-medium shadow-lg">
+                  {item.year}
+                </div>
+              </div> */}
+
+              {/* Content card */}
+              <div className={`w-full lg:w-6/12 mt-8 lg:mt-0 ${index % 2 === 0 ? 'lg:mr-auto lg:pr-12' : 'lg:ml-auto lg:pl-12'} relative overflow-hidden`}>
+                {/* Year badge positioned above the card */}
+                <div className="absolute top-0 left-0 w-full z-20">
+                  <div className="bg-gradient-to-r from-primary to-secondary text-white py-1 px-2 rounded-t-lg text-center font-medium shadow-lg">
                     {item.year}
                   </div>
-                </div> */}
-
-                {/* Content card */}
-                <div className={`w-full lg:w-6/12 mt-8 lg:mt-0 ${index % 2 === 0 ? 'lg:mr-auto lg:pr-12' : 'lg:ml-auto lg:pl-12'} relative overflow-hidden`}>
-                  {/* Year badge positioned above the card */}
-                  <div className="absolute top-0 left-0 w-full z-20">
-                    <div className="bg-gradient-to-r from-primary to-secondary text-white py-1 px-2 rounded-t-lg text-center font-medium shadow-lg">
-                      {item.year}
-                    </div>
-                  </div>
-
-                  {applyGlass(
-                    <div className="relative pt-8"> {/* Added pt-12 to make space for the badge */}
-                      
-                      <div className="p-6 lg:pt-6">
-                        <h3 className="text-lg sm:text-xl font-bold gradient-text mb-2">{item.title}</h3>
+                </div>
+                {applyGlass(
+                  <div className="relative pt-8">
+                    {/* Added pt-12 to make space for the badge */}
+                    <div className="p-6 lg:pt-6">
+                      <h3 className="text-lg sm:text-xl font-bold gradient-text mb-2">{item.title}</h3>
                       <h4 className="text-primary font-medium mb-2">{item.institution}</h4>
-                      
                       <div className="flex flex-col space-y-2">
                         {/* Location with icon */}
                         <div className="flex items-center text-gray-300">
@@ -125,7 +116,6 @@ const Education: FC = () => {
                           </svg>
                           <span>{item.location}</span>
                         </div>
-                        
                         {/* Percentage with icon - only show if percentage exists */}
                         {item.percentage && (
                           <div className="flex items-center text-gray-300">
@@ -138,12 +128,7 @@ const Education: FC = () => {
                       </div>
                     </div>
                   </div>,
-                  {
-                    intensity: 10,
-                    borderRadius: '1rem',
-                    depth: 2,
-                    className: 'h-full overflow-hidden' // Added overflow-hidden
-                  }
+                  { intensity: 10, borderRadius: '1rem', depth: 2, className: 'h-full overflow-hidden' } // Added overflow-hidden
                 )}
               </div>
             </motion.div>

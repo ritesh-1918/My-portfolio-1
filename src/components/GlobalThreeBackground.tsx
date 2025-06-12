@@ -1,10 +1,9 @@
-import { Canvas } from '@react-three/fiber';
 import { Canvas as R3FCanvas, useFrame, useThree } from '@react-three/fiber';
 import { Stars, Icosahedron, TorusKnot } from '@react-three/drei';
-// Temporarily comment out physics imports until @react-three/rapier is installed
-import { Physics, useSphere } from '@react-three/rapier';
+
+
 import { useSpring, animated } from '@react-spring/three';
-import { useRef, useMemo, useEffect, useState } from 'react';
+import { Suspense, useRef, useMemo, useEffect, useState } from 'react';
 import * as THREE from 'three';
 import { useScroll } from '@react-three/drei';
 
@@ -29,10 +28,10 @@ const FloatingGeometry = () => {
   return (
     <group>
       <Icosahedron ref={icoRef} args={[1, 1]} position={[-2, 0, 0]}>
-        <meshStandardMaterial color="#00FF88" wireframe />
-      </Icosahedron>
-      <TorusKnot ref={torusRef} args={[1, 0.4, 128, 16]} position={[2, 0, 0]}>
-        <meshStandardMaterial color="#7000FF" wireframe />
+          <meshStandardMaterial attach="material" color="#00FF88" wireframe />
+        </Icosahedron>
+        <TorusKnot ref={torusRef} args={[1, 0.4, 128, 16]} position={[2, 0, 0]}>
+          <meshStandardMaterial attach="material" color="#7000FF" wireframe />
       </TorusKnot>
     </group>
   );
@@ -73,7 +72,7 @@ const ParticleSystem = () => {
           itemSize={3}
         />
       </bufferGeometry>
-      <pointsMaterial size={0.05} color="#F0F0F0" sizeAttenuation={true} />
+      <pointsMaterial attach="material" size={0.05} color="#F0F0F0" sizeAttenuation={true} />
     </points>
   );
 };
@@ -124,8 +123,10 @@ const ShaderEffects = () => {
   return null; // Or a mesh with custom material
 };
 
+import { Physics, RigidBody, CylinderCollider, RapierRigidBody } from '@react-three/rapier';
+
 const PhysicsObject = () => {
-  const [ref, api] = useSphere(() => ({ mass: 1, position: [0, 0, 0] }));
+  const ref = useRef<RapierRigidBody>(null);
   const [spring, springApi] = useSpring(() => ({ scale: 1 }));
 
   const handleHover = (hovered: boolean) => {
@@ -133,15 +134,17 @@ const PhysicsObject = () => {
   };
 
   return (
-    <animated.mesh
-      ref={ref}
-      scale={spring.scale}
-      onPointerOver={() => handleHover(true)}
-      onPointerOut={() => handleHover(false)}
-    >
-      <sphereGeometry args={[0.5, 32, 32]} />
-      <meshStandardMaterial color="hotpink" />
-    </animated.mesh>
+    <RigidBody ref={ref}>
+      <CylinderCollider args={[0.5, 0.5]} />
+      <animated.mesh
+        scale={spring.scale}
+        onPointerOver={() => handleHover(true)}
+        onPointerOut={() => handleHover(false)}
+      >
+        <sphereGeometry args={[0.5, 32, 32]} />
+        <meshStandardMaterial color="hotpink" />
+      </animated.mesh>
+    </RigidBody>
   );
 };
 
@@ -149,13 +152,15 @@ const GlobalThreeBackground = () => {
   return (
     <R3FCanvas camera={{ position: [0, 0, 10], fov: 75 }}>
       <color attach="background" args={["#2A2A2A"]} />
-      <Physics>
+      <Physics gravity={[0, -9.81, 0]} colliders={false}>
+          <Suspense fallback={null}>
         <FloatingGeometry />
         <ParticleSystem />
         <DynamicLighting />
         <ShaderEffects />
         <PhysicsObject />
-      </Physics>
+          </Suspense>
+        </Physics>
 
     </R3FCanvas>
   );
