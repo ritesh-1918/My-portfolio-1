@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useGlassMorphism } from '../context/GlassMorphismProvider';
 import { useState, useRef } from 'react';

@@ -12,10 +12,10 @@ interface Certificate {
 const certificateData: Certificate[] = [
   // Newest certificates should be at the top of this list
   {
-        id: '1',
-      name: 'LETSupgrade C++',
-        image: '/images/certificates/LETSupgrade c++-1.png'
-      },
+        id: '1',
+      name: 'LETSupgrade C++',
+        image: '/images/certificates/LETSupgrade c++-1.png'
+      },
     
   {
     id: '2',
@@ -148,7 +148,7 @@ const CertificateModal = ({ certificate, onClose }: { certificate: Certificate; 
         initial={{ scale: 0.9 }}
         animate={{ scale: 1 }}
         className="relative max-w-5xl max-h-[90vh] overflow-hidden rounded-xl bg-black bg-opacity-50"
-        onClick={e => e.stopPropagation()}
+        onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
       >
         <div className="absolute top-4 right-4 flex space-x-2 z-10">
           <button 
