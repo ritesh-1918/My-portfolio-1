@@ -206,7 +206,7 @@ const Projects = () => {
       ],
       links: {
         live: 'https://ritesh1918.netlify.app/',
-        github: 'https://github.com/yourusername/3d-portfolio'
+        github: 'https://github.com/ritesh-1918/My-portfolio-1'
       }
     },
     {
