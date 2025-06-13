@@ -70,7 +70,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
         initial={{ scale: 0.9 }}
         animate={{ scale: 1 }}
         className="bg-background rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
       >
         {/* Close button */}
         <button

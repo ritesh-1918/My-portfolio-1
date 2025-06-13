@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaFileDownload } from 'react-icons/fa';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -166,7 +165,7 @@ const Navbar = () => {
               exit={{ x: '100%' }}
               transition={{ type: 'tween' }}
               className="fixed right-0 top-0 h-full w-64 bg-background p-6"
-              onClick={e => e.stopPropagation()}
+              onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
             >
               <div className="flex justify-end mb-8">
                 <button

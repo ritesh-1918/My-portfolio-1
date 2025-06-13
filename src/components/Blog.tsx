@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useGlassMorphism } from '../context/GlassMorphismProvider';
 import { useState, useRef } from 'react';
-import { FaSearch, FaClock, FaTags } from 'react-icons/fa';
 
 interface BlogPost {
   title: string;
@@ -95,7 +94,9 @@ const Blog = () => {
           <div className="relative w-full md:w-64">
             {applyGlass(
               <div className="flex items-center">
-                <FaSearch className="absolute left-3 text-gray-400" />
+                <svg className="absolute left-3 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
                 <input
                   type="text"
                   placeholder="Search posts..."
@@ -155,7 +156,9 @@ const Blog = () => {
                     <div className="flex items-center gap-4 text-sm text-gray-400 mb-3">
                       <span>{post.date}</span>
                       <div className="flex items-center gap-1">
-                        <FaClock className="w-4 h-4" />
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
                         <span>{post.readTime}</span>
                       </div>
                     </div>

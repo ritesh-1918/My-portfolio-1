@@ -156,7 +156,7 @@ const ExperienceModal = ({ experience, onClose }: { experience: Experience; onCl
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 20 }}
         className="w-full max-w-4xl max-h-[90vh] overflow-y-auto"
-        onClick={e => e.stopPropagation()}
+        onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
       >
           <div className="p-8">
             <div className="flex justify-between items-start mb-6">
