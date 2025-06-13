@@ -205,7 +205,7 @@ const Projects = () => {
         '/images/projects/3D Portfolio.png'
       ],
       links: {
-        live: 'https://your-portfolio-url.com',
+        live: 'https://ritesh1918.netlify.app/',
         github: 'https://github.com/yourusername/3d-portfolio'
       }
     },

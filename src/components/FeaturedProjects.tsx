@@ -44,7 +44,7 @@ const projectItems: ProjectItem[] = [
     title: "Portfolio Website",
     description: "A modern, responsive portfolio built with React, TypeScript, and Three.js featuring interactive 3D elements and smooth animations.",
     imageUrl: "/images/projects/3D Portfolio.png",
-    link: "https://your-portfolio-url.com",
+    link: "https://ritesh1918.netlify.app/",
     technologies: ["React", "TypeScript", "Three.js", "Tailwind CSS"],
     color: "#EC4899"
   },

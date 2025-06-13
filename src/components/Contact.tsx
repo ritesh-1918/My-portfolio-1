@@ -140,7 +140,7 @@ const Contact: React.FC = () => {
                     </div>
                     <div>
                       <p className="text-xs sm:text-sm text-gray-400">Website</p>
-                      <a href="https://" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary transition-colors">My Portfolio</a>
+                      <a href="https://ritesh1918.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary transition-colors">My Portfolio</a>
                     </div>
                   </div>
                 </div>
