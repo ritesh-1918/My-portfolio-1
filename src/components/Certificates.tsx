@@ -115,6 +115,7 @@ const certificateData: Certificate[] = [
     { id: '28', name: 'CyberSecurity ', image: '/images/certificates/11.png' },
     { id: '29', name: 'Entrepreneurship Certificate', image: '/images/certificates/12.png' },
     { id: '30', name: 'Python', image: '/images/certificates/14.png' },
+{ id: '31', name: 'UI Path Automation', image: '/images/certificates/30.png' },
 
 
 
