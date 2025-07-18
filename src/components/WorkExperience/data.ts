@@ -65,7 +65,7 @@ export const experienceData: Experience[] = [
     id: 5,
     role: 'Full Stack Developer Intern',
     company: 'Yhills Edtech Pvt limited',
-    duration: '01 Feb 2025 - 17 Feb 2025',
+    duration: '1 Month',
     category: 'Internship',
     progress: 100,
     achievements: [
