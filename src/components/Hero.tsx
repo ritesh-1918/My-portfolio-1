@@ -68,7 +68,7 @@ const Hero = () => {
               transition={{ delay: 0.8 }}
               className="text-base sm:text-lg text-gray-300 mb-8 max-w-xl leading-relaxed"
             >
-             I build modern websites, videos, and solutions for startups and entrepreneurs.
+             I build modern websites, AI Agents, and solutions for startups and entrepreneurs.
              Grounded in IoT and computer science, I deliver innovative, accessible digital experiences.
             </motion.p>
             
@@ -140,7 +140,7 @@ const Hero = () => {
                   transition={{ duration: 0.3 }}
                 >
                   <img 
-                    src="/images/profilepic.jpg"
+                    src="/images/head shot.jpg"
                     alt="Ritesh Bonthalakoti"
                     className="w-full h-full object-cover"
                   />
