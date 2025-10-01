@@ -140,7 +140,7 @@ const Hero = () => {
                   transition={{ duration: 0.3 }}
                 >
                   <img 
-                    src="/images/head shot.jpg"
+                    src="/images/MyHeadShot.png"
                     alt="Ritesh Bonthalakoti"
                     className="w-full h-full object-cover"
                   />
