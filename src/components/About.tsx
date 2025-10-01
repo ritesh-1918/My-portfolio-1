@@ -46,7 +46,7 @@ const About = () => {
                 <div className="w-full h-full rounded-xl overflow-hidden bg-background">
                   {/* Replace this with your actual photo */}
                   <img 
-                    src="/images/Ritesh pic blue.jpg" 
+                    src="/images/Ritesh pic.png" 
                     alt="Ritesh Bonthalakoti"
                     className="w-full h-full object-cover"
                   />
@@ -107,7 +107,7 @@ const About = () => {
                   <div>
                     <h3 className="text-lg sm:text-xl font-bold mb-2">My Self</h3>
                     <p className="text-gray-300">
-                      As a 16 year old Entrepreneur from Visakhapatnam Aiming to slove real world problems using both hardware technologies and software. I'm pursing my Diploma 3rd year in Electronics and Communication Engineering at Sanketika Polytechnic College.
+                      As a 17 year old Entrepreneur from Visakhapatnam Aiming to slove real world problems using both hardware technologies and software. I'm pursing my Diploma 3rd year in Electronics and Communication Engineering at Sanketika Polytechnic College.
                     </p>
                   </div>
                 </div>
