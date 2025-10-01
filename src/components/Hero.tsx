@@ -109,7 +109,7 @@ const Hero = () => {
               <SocialLink href="https://github.com/ritesh-1918" icon="github" />
               <SocialLink href="https://www.linkedin.com/in/ritesh1908/" icon="linkedin" />
               <SocialLink href="https://www.instagram.com/ritesh_19180/" icon="instagram" />
-              <SocialLink href="https://x.com/MadhaviBonthal1" icon="twitter" />
+              <SocialLink href="https://x.com/ritesh_1918" icon="twitter" />
             </motion.div>
           </motion.div>
           
